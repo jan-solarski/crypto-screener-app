@@ -5,7 +5,7 @@ export const Navigation = () => {
     <nav className="w-[40%] mt-16 flex justify-around align-middle border border-cyan rounded-lg">
       <NavLink
         to="/"
-        // end
+        end
         className={({ isActive }) => {
           return `w-full text-base text-center m-2.5 rounded
           ${
