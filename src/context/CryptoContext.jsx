@@ -1,5 +1,4 @@
 import { createContext, useLayoutEffect, useState } from "react";
-import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 export const CryptoContext = createContext({});
@@ -12,50 +11,13 @@ export const CryptoProvider = ({ children }) => {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(250);
   const [perPage, setPerPage] = useState(10);
-
-  // React Query fetch solution
-  {
-    /* const { data, isLoading, refetch } = useQuery(
-    ["crypto"],
-    () =>
-      axios
-        .get(
-          `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d`
-        )
-        .then((res) => res.data)
-        .catch((err) => console.log(err)),
-    {
-      onSuccess: (data) => {
-        setCryptoData(data);
-      },
-    }
-  );*/
-  }
-
-  {
-    /*const { data: searchQueryData } = useQuery(
-    ["search data"],
-    (query) => {
-      return axios
-        .get(`https://api.coingecko.com/api/v3/search?query=${query}`)
-        .then((res) => res.data)
-        .catch((err) => console.log(err));
-    },
-    {
-      onSuccess: (data) => {
-        setQueryData(data);
-      },
-    }
-  ); */
-  }
-  ///
+  const [coinData, setCoinData] = useState();
 
   const getCryptoData = async () => {
     try {
       const data = await fetch(`https://api.coingecko.com/api/v3/coins/list`)
         .then((res) => res.json())
         .then((json) => json);
-      console.log(data);
       setTotalPages(data.length);
     } catch (err) {
       console.log(err);
@@ -91,6 +53,18 @@ export const CryptoProvider = ({ children }) => {
     setCoinSearch("");
   };
 
+  const getCoinData = async (coinId) => {
+    try {
+      const data = await fetch(
+        `https://api.coingecko.com/api/v3/coins/${coinId}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=true&sparkline=false`
+      )
+        .then((res) => res.json())
+        .then((data) => setCoinData(data));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <CryptoContext.Provider
       value={{
@@ -110,6 +84,8 @@ export const CryptoProvider = ({ children }) => {
         resetSearch,
         perPage,
         setPerPage,
+        getCoinData,
+        coinData,
       }}
     >
       {children}

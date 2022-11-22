@@ -63,9 +63,17 @@ export const Table = () => {
                           src={coin.image}
                           alt={coin.name}
                         />
-                        <span>{coin.symbol}</span>
+                        <span>
+                          <Link to={`/${coin.id}`} className="cursor-pointer">
+                            {coin.symbol}
+                          </Link>
+                        </span>
                       </td>
-                      <td className="py-4">{coin.name}</td>
+                      <td className="py-4">
+                        <Link to={`/${coin.id}`} className="cursor-pointer">
+                          {coin.name}
+                        </Link>
+                      </td>
                       <td className="py-4">
                         {new Intl.NumberFormat("en-UK", {
                           style: "currency",
