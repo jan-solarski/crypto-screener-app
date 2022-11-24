@@ -53,7 +53,7 @@ export const CryptoDetails = () => {
         className="w-[65%] h-[75%] bg-gray-300 bg-opacity-75 rounded-lg text-white relative"
         onClick={(e) => e.stopPropagation()}
       >
-        {coinData && (
+        {coinData ? (
           <div className="flex items-center justify-between h-full w-full p-4">
             <div className="flex flex-col w-[45%] h-full pr-2">
               <div className="flex w-full items-center">
@@ -434,6 +434,14 @@ export const CryptoDetails = () => {
                 </a>
               )}
             </div>
+          </div>
+        ) : (
+          <div className="p-16 w-full min-h-[60vh] h-full flex justify-center items-center">
+            <div
+              className="w-8 h-8 border-4 border-cyan rounded-full border-b-gray-200 animate-spin"
+              role="status"
+            />
+            <span className="ml-2">Loading...</span>
           </div>
         )}
       </div>

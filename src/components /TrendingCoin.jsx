@@ -11,7 +11,7 @@ export const TrendingCoin = ({ data }) => {
       className="w-[40%] bg-gray-200 mb-12 last:mb-0 rounded-lg p-4 cursor-pointer hover:bg-gray-100 hover:bg-opacity-40 relative"
       onClick={() => getCoinDetails(data.id)}
     >
-      {data && (
+      {data ? (
         <>
           <h3 className="text-base flex items-center my-0.5">
             <span className="text-gray-100 capitalize">name:&nbsp;</span>
@@ -54,6 +54,14 @@ export const TrendingCoin = ({ data }) => {
             alt={data.name}
           />
         </>
+      ) : (
+        <div className="p-16 w-full h-full flex justify-center items-center">
+          <div
+            className="w-8 h-8 border-4 border-cyan rounded-full border-b-gray-200 animate-spin"
+            role="status"
+          />
+          <span className="ml-2">Loading...</span>
+        </div>
       )}
     </div>
   );
