@@ -41,7 +41,7 @@ export const CryptoDetails = () => {
   }, [coinId]);
 
   const close = () => {
-    navigate("/");
+    navigate("..");
   };
 
   return ReactDOM.createPortal(
