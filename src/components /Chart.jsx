@@ -32,7 +32,10 @@ function CustomTooltip({ payload, label, active, currency = "gbp" }) {
 
 const ChartComponent = ({ data, currency, type }) => {
   return (
-    <ResponsiveContainer height="90%">
+    <ResponsiveContainer
+      className="recharts-responsiive-container"
+      height="90%"
+    >
       <LineChart width={400} height={400} data={data}>
         <Line
           type="monotone"
@@ -85,9 +88,9 @@ export const Chart = ({ id }) => {
   return (
     <div className="w-full h-[60%] ">
       <ChartComponent data={chartData} currency={currency} type={type} />
-      <div className="flex">
+      <div className="flex md:flex-nowrap flex-wrap">
         <button
-          className={`text-sm py-0 px-1.5 ml-2 bg-opacity-25 rounded capitalize ${
+          className={`md:mt-0 mt-2 text-sm py-0 px-1.5 ml-2 bg-opacity-25 rounded capitalize ${
             type === "prices"
               ? "bg-cyan text-cyan"
               : "bg-gray-200 text-gray-100"
