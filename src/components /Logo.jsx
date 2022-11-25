@@ -5,10 +5,10 @@ export const Logo = () => {
   return (
     <Link
       to="/"
-      className="absolute sm:top-[1.5rem] top-1[rem] sm:left-[1.5rem] left-[1rem] [text-decoration:none] sm:text-lg text-md text-cyan flex items-center cursor-pointer"
+      className="absolute sm:top-[1.5rem] top-[1rem] sm:left-[1.5rem] left-[1rem] [text-decoration:none]  text-cyan cursor-pointer flex items-center sm:text-lg text-md"
     >
-      <img src={logoSvg} alt="Logo" />
-      <span>CryptoBucks</span>
+      <img src={logoSvg} alt="Logo" className="w-[25%] h-auto" />
+      <span>CryptoScreener</span>
     </Link>
   );
 };

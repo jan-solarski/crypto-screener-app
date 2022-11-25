@@ -22,16 +22,16 @@ export const Filters = () => {
   };
 
   return (
-    <div className="w-full h-12 border-2 border-gray-100 rounded-lg flex items-center justify-between relative">
+    <div className="w-full lg:h-12 h-full lg:border-2 rounded-lg border-solid lg:border-gray-100 border-0 flex lg:flex-row flex-col lg:items-center lg:justify-between relative align-start justify-between">
       <Search />
-      <div className="flex mr-7">
+      <div className="flex lg:mr-7 justify-between mt-4 lg:mt-0 sm:flex-row flex-col relative">
         <form
-          className="relative flex items-center mr-12"
+          className="relative flex items-center md:mr-12 mr-1"
           onSubmit={handleCurrencySubmit}
         >
           <label
             htmlFor="currency"
-            className="flex justify-center items-center mr-2 font-bold"
+            className="mr-2  sm:text-base text-sm sm:font-bold font-medium"
           >
             currency
           </label>
@@ -40,7 +40,7 @@ export const Filters = () => {
             type="text"
             name="currency"
             placeholder="gbp"
-            className="w-16 rounded bg-gray-200 placeholder:text-gray-100 pl-2 required outline-0 border border-transparent focus:border-cyan leading-4"
+            className="w-16 rounded bg-gray-200 placeholder:text-gray-100 placeholder:text-base required outline-0  border border-transparent focus:border-cyan leading-4  sm:text-base text-sm sm:p-0 sm:pl-2 p-1"
             ref={currencyRef}
           />
           <button className="ml-1 cursor-pointer">
@@ -49,23 +49,41 @@ export const Filters = () => {
         </form>
         <label
           htmlFor="sortby"
-          className="relative flex justify-center items-center"
+          className="relative flex sm:justify-center justify-start items-center mt-4 sm:mt-0"
         >
-          <span className="font-bold mr-2">sort by:</span>
+          <span className="mr-2 sm:font-bold font-medium sm:text-base text-sm w-16">
+            sort by:
+          </span>
           <select
-            className="rounded bg-gray-200 text-base pl-2 pr-10 py-0.5 leading-4 capitalize focus:outline-0"
+            className="rounded bg-gray-200 sm:text-base text-sm pl-2 pr-10 py-1.5 focus:outline-0 text-transparent appearance-none capitalize leading-4 w-full sm:w-48"
             name="sortby"
             id="sortby"
             onClick={handleSortBy}
           >
-            <option value="market_cap_desc"> market cap desc</option>
-            <option value="market_cap_asc">market cap asc</option>
-            <option value="volume_desc">volume desc</option>
-            <option value="volume_asc">volume asc</option>
-            <option value="id_desc">id desc</option>
-            <option value="id_asc">id asc</option>
-            <option value="gecko_desc">gecko desc</option>
-            <option value="gecko_asc">gecko asc</option>
+            <option className="sm:text-base text-sm" value="market_cap_desc">
+              market cap desc
+            </option>
+            <option className="sm:text-base text-sm" value="market_cap_asc">
+              market cap asc
+            </option>
+            <option className="sm:text-base text-sm" value="volume_desc">
+              volume desc
+            </option>
+            <option className="sm:text-base text-sm" value="volume_asc">
+              volume asc
+            </option>
+            <option className="sm:text-base text-sm" value="id_desc">
+              id desc
+            </option>
+            <option className="sm:text-base text-sm" value="id_asc">
+              id asc
+            </option>
+            <option className="sm:text-base text-sm" value="gecko_desc">
+              gecko desc
+            </option>
+            <option className="sm:text-base text-sm" value="gecko_asc">
+              gecko asc
+            </option>
           </select>
           <img
             src={selectIcon}
@@ -75,7 +93,7 @@ export const Filters = () => {
         </label>
         <button
           onClick={resetSearch}
-          className="w-[2rem] ml-4 hover:scale-110 transition-all transition-ease relative right-0 top-0"
+          className="w-[2rem] ml-4 hover:scale-110 transition-all transition-ease absolute right-0 top-0 sm:relative"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

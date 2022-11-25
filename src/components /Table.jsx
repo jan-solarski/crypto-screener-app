@@ -64,10 +64,12 @@ export const Table = () => {
               <thead className="capitalize text-base text-gray-100 font-medium border-b border-gray-100">
                 <tr>
                   <th className="py-1">asset</th>
-                  <th className="py-1">name</th>
+                  <th className="py-1 sm:table-cell hidden">name</th>
                   <th className="py-1">price</th>
-                  <th className="py-1">total volume</th>
-                  <th className="py-1">market cap change</th>
+                  <th className="py-1 md:table-cell hidden">total volume</th>
+                  <th className="py-1 sm:table-cell hidden">
+                    market cap change
+                  </th>
                   <th className="py-1 lg:table-cell hidden">1H</th>
                   <th className="py-1 lg:table-cell hidden">24H</th>
                   <th className="py-1 lg:table-cell hidden">7D</th>
@@ -93,7 +95,7 @@ export const Table = () => {
                           </Link>
                         </span>
                       </td>
-                      <td className="py-4">
+                      <td className="py-4 cursor-pointer sm:table-cell hidden">
                         <Link to={`/${coin.id}`} className="cursor-pointer">
                           {coin.name}
                         </Link>
@@ -104,8 +106,10 @@ export const Table = () => {
                           currency: currency,
                         }).format(coin["current_price"])}
                       </td>
-                      <td className="py-4">{coin["total_volume"]}</td>
-                      <td className="py-4">
+                      <td className="py-4 py-4 sm:table-cell hidden">
+                        {coin["total_volume"]}
+                      </td>
+                      <td className="py-4 md:table-cell hidden">
                         {coin["market_cap_change_percentage_24h"]}
                       </td>
                       <td
@@ -148,7 +152,7 @@ export const Table = () => {
               </tbody>
             </table>
           </div>
-          <div className="flex items-center justify-between mt-4 capitalize h-[2rem]">
+          <div className="flex md:flex-row flex-col items-center justify-between mt-4 capitalize h-[2rem]">
             <span>
               Data provided by{" "}
               <Link
