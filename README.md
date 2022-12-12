@@ -4,6 +4,10 @@
 
 This app is a project for all information around crypto prices and the latest updates. Crypto Screener application shows a list of cryptocurrencies with the ability to click on selected coins and display more details about them with a beautiful chart. The application has functionalities like saving favourite cryptocurrencies, concurrent search, pagination, and sorting.
 
+## Live 🎆
+
+https://crypto-screener-app.netlify.app/
+
 ## Tech/framework used 🧰
 
 Tech | Description 
@@ -29,11 +33,6 @@ npm install
 npm run dev
 
 ```
-
-## Live 🎆
-
-https://crypto-screener-app.netlify.app/
-
 ## Application view 🖥
 
 <img src="https://user-images.githubusercontent.com/92514481/204034445-6d9b7f26-62e0-432d-b23c-c233baf0380c.png" width="90%"></img>
